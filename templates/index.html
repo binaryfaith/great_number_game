@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Yay Numbers</title>
+</head>
+<body>
+    
+        <h1>Welcome to the Great Numbers Game!</h1><br>
+        <h2>I'm thinking of a number between 1 and 100</h2><br>
+        <h3>Take a Guess!</h3><br>
+        {%if not session["win"]%}
+        <form action="/guess" method="POST">
+        Guess Here: <input type="someKey" name="guess">
+        <input type="submit" value="submit"> 
+    </form>
+        {%endif%}
+            {%if session["wrong"]%}
+            {{session["wrong"]}}
+        {%endif%}
+            {%if session["win"]%}
+            {{session["win"]}}
+        <form action="/restart" method="post">         
+            <input type="submit" value="Play Again!">
+        </form>
+        {%endif%}
+</body>
+</html>
